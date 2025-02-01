@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[90vh] flex justify-center items-start mt-10">
+    <div class="h-[90vh] flex justify-center items-start mt-20">
         <div class="flex flex-wrap md:flex-nowrap items-center justify-center gap-10 container lg:gap-20">
         <div class="max-w-lg">
         <h1 class="text-4xl text-center md:text-left md:text-5xl font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-transparent bg-clip-text drop-shadow-lg animate-pulse">STYLEHAVEN</h1>
@@ -8,7 +8,7 @@
         latest trends and timeless collections curated to redefine your style.
         </p>
         </div>
-        <img src="../assets/landing-img.jpg" class="w-full max-w-sm h-auto rounded-full" alt="model">
+        <img src="../assets/landing-img.jpg" class="w-full md:flex max-w-sm h-auto rounded-full drop-shadow-md" alt="model">
        </div>
        <div class="custom-shape-divider-bottom-1737879043">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -53,8 +53,9 @@ import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Packa
 <style scoped>
 .custom-shape-divider-bottom-1737879043 {
     width: 100%;
-    line-height: 0;
     position: absolute;
     bottom: 0;
 }
+
+
 </style>
