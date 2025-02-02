@@ -44,9 +44,15 @@ defineProps<{
             <span class="sr-only">Acme Inc</span>
           </a>
           <!-- Use v-for in mobile menu -->
-          <a v-for="option in options" :key="option.name" :href="option.link" class="hover:text-foreground">
-            {{ option.name }}
-          </a>
+          <NuxtLink
+             v-for="option in options"
+             :key="option.name"
+             :to="option.link"
+             class="text-muted-foreground hover:text-foreground"
+             prefetch
+           >
+             {{ option.name }}
+           </NuxtLink>
         </nav>
       </SheetContent>
     </Sheet>
