@@ -21,7 +21,7 @@
 </div>
     </div>
     <!-- About section -->
-    <div class="mt-10 px-6 md:px-20 lg:px-40 text-center lg:text-left container">
+    <div class="mt-10 p-6 md:p-20 lg:p-40 text-center lg:text-left container">
             <h1 class="text-center text-4xl font-bold">About Us</h1>
             <p class="mt-4 text-gray-600 leading-relaxed">
         Welcome to <span class="font-semibold text-gray-800">Style Haven</span> – your ultimate destination for timeless elegance and modern fashion.  
@@ -41,7 +41,7 @@
     </p>
     </div>
     <!-- Collection types -->
-    <div class="mt-10 relative grid grid-cols-1 lg:grid-cols-3 w-full gap-5 px-10 py-40 md:p-40">
+    <div class="relative grid grid-cols-1 lg:grid-cols-3 w-full gap-5 px-10 py-40 md:p-40">
         <img src="../assets/formal.webp" class="w-[100%] h-[450px]" alt="formal">
         <img src="../assets/casual.webp" class="w-[100%] h-[450px]" alt="casual">
         <img src="../assets/streetwear.webp" class="w-[100%] h-[450px]" alt="street">

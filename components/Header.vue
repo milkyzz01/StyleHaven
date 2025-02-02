@@ -5,10 +5,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Input } from './ui/input';
-type option = {
-  name: string;
-  link: string;
-};
 defineProps<{
     options: Array<{
         name: string,
