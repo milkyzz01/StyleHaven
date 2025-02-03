@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 const option = [
-  { name: 'Dashboard', link: '#' },
-  { name: 'Products', link: '#' },
-  { name: 'Order', link: '#' },
+  { name: 'Home', link: '/' },
+  { name: 'Login', link: 'login' },
+  { name: 'Signup', link: '#' },
 ];
 </script>
 
