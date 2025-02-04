@@ -9,7 +9,7 @@ definePageMeta({
     <div class="max-w-screen-xl m-0 sm:m-10 bg-white lg:shadow  sm:rounded-lg flex justify-center flex-1">
         <div class="flex-1 bg-indigo-100 text-center hidden md:flex">
             <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-                 style="background-image: url('/landing-img.jpg');">
+                 style="background-image: url('/login-image.png');">
             </div>
         </div>
         <!-- login form  -->
