@@ -2,7 +2,7 @@
 const option = [
   { name: 'Home', link: '/' },
   { name: 'Login', link: 'login' },
-  { name: 'Signup', link: '#' },
+  { name: 'Signup', link: 'signup' },
 ];
 </script>
 
