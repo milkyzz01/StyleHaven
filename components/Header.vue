@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { defineProps } from 'vue';
 import { Package2, Menu, Search, CircleUser } from 'lucide-vue-next';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { Button } from './ui/button';
