@@ -4,6 +4,11 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Input } from './ui/input';
+import { useDark } from '~/composables/useDark'
+
+//use theme darkmode composable
+const { isDark, toggleDarkMode } = useDark();
+
 defineProps<{
     options: Array<{
         name: string,
@@ -21,14 +26,22 @@ defineProps<{
         <span class="sr-only">Acme Inc</span>
       </a>
       <!-- Use v-for to render navigation links -->
-      <a v-for="option in options" :key="option.name" :href="option.link" class="text-muted-foreground hover:text-foreground">
-        {{ option.name }}
-      </a>
+      <NuxtLink
+             v-for="option in options"
+             :key="option.name"
+             :to="option.link"
+             class="text-muted-foreground dark:text-foreground hover:text-foreground dark:hover:text-muted-foreground"
+             prefetch
+           >
+             {{ option.name }}
+      </NuxtLink>
+           <!-- darkmode component -->
+           <DarkMode />
     </nav>
     <Sheet>
       <SheetTrigger as-child>
         <Button variant="outline" size="icon" class="shrink-0 md:hidden">
-          <Menu class="h-5 w-5" />
+          <Menu class="h-5 w-5  dark:bg-white-500" />
           <span class="sr-only">Toggle navigation menu</span>
         </Button>
       </SheetTrigger>
@@ -43,11 +56,13 @@ defineProps<{
              v-for="option in options"
              :key="option.name"
              :to="option.link"
-             class="text-muted-foreground hover:text-foreground"
+             class="text-muted-foreground hover:text-foreground dark:hover:text-muted-foreground"
              prefetch
            >
              {{ option.name }}
            </NuxtLink>
+           <!-- darkmode component -->
+           <DarkMode />
         </nav>
       </SheetContent>
     </Sheet>
