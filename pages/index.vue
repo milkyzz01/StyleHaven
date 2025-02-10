@@ -2,14 +2,21 @@
     <div class="h-[100vh] container p-20 relative">
         <div class="h-[50vh] items-center justify-center gap-10 flex flex-wrap md:flex-nowrap">
         <div class="max-w-lg">
-        <h1 class="text-4xl text-center md:text-center lg:text-left md:text-5xl font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-transparent bg-clip-text drop-shadow-lg animate-pulse">STYLEHAVEN</h1>
-        <p class="text-xs dark:text-foreground text-center md:text-center lg:text-left md:text-sm text-gray-600 max-w-2xl font-sans">
+        <h1 class="text-4xl text-center md:text-center lg:text-left md:text-5xl font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-transparent bg-clip-text drop-shadow-lg animate-pulse"  v-motion 
+        :initial="{ opacity: 0, x: -200 }"
+        :enter="{ opacity: 1, x: 0, transition: { duration: 1000 } }">STYLEHAVEN</h1>
+        <p v-motion class="text-xs dark:text-foreground text-center md:text-center lg:text-left md:text-sm text-gray-600 max-w-2xl font-sans"
+        :initial="{ opacity: 0, x: -200 }"
+        :enter="{ opacity: 1, x: 0, transition: { duration: 1000 } }">
         Welcome to Style Haven – where elegance meets innovation. Discover our
         latest trends and timeless collections curated to redefine your style.
         </p>
         </div>
         <div>
-        <img src="../assets/landing-img.jpg" class="w-full max-w-sm rounded-full drop-shadow-md" alt="model">
+        <img src="../assets/landing-img.jpg" v-motion 
+        :initial="{ opacity: 0, x: 100 }"
+        :visible="{ opacity: 1, x: 0, transition: { duration: 1000 } }"
+         class="w-full max-w-sm rounded-full drop-shadow-md" alt="model">
        </div>   
     </div>
        <div class="custom-shape-divider-bottom-1738411565 dark:hidden">
@@ -22,8 +29,14 @@
     </div>
     <!-- About section -->
     <div class="mt-10 p-6 md:p-20 lg:p-40 text-center lg:text-left container">
-            <h1 class="text-center text-4xl font-bold">About Us</h1>
-            <p class="mt-4 text-gray-600 dark:text-foreground leading-relaxed">
+            <h1 
+             class="text-center text-4xl font-bold" v-motion
+             :initial="{ opacity: 0, x: -100 }"
+             :visible="{ opacity: 1, x: 0, transition: { duration: 1000, delay: 300 } }">About Us</h1>
+            <p class="mt-4 text-gray-600 dark:text-foreground leading-relaxed"
+            v-motion
+             :initial="{ opacity: 0, x: 100 }"
+             :visible="{ opacity: 1, x: 0, transition: { duration: 1000, delay: 300 } }">
         Welcome to <span class="font-semibold dark:text-foreground text-gray-800">Style Haven</span> – your ultimate destination for timeless elegance and modern fashion.  
         We believe that style is more than just clothing; it’s a reflection of personality, confidence, and creativity.  
         Our goal is to help you express yourself through meticulously curated collections that blend innovation with classic sophistication.
@@ -42,9 +55,15 @@
     </div>
     <!-- Collection types -->
     <div class="relative grid grid-cols-1 lg:grid-cols-3 w-full gap-5 px-10 py-40 md:p-40">
-        <img src="../assets/formal.webp" class="w-[100%] h-[450px]" alt="formal">
-        <img src="../assets/casual.webp" class="w-[100%] h-[450px]" alt="casual">
-        <img src="../assets/streetwear.webp" class="w-[100%] h-[450px]" alt="street">
+        <img src="../assets/formal.webp" class="w-[100%] h-[450px]" v-motion
+             :initial="{ opacity: 0, y: 100 }"
+             :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 300 } }" alt="formal">
+        <img src="../assets/casual.webp" class="w-[100%] h-[450px]" v-motion
+             :initial="{ opacity: 0, y: -100 }"
+             :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 300 } }" alt="casual">
+        <img src="../assets/streetwear.webp" class="w-[100%] h-[450px]" v-motion
+             :initial="{ opacity: 0, y: 100 }"
+             :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 300 } }" alt="street">
         <div class="custom-shape-divider-bottom-1737879043 dark:hidden">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill bg-red-700"></path>
