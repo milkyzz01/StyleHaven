@@ -7,7 +7,7 @@ definePageMeta({
 <template>
 <div class="text-gray-900 lg:drop-shadow-md lg:border-0 flex justify-center dark:bg-background" 
 v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transition: { duration: 1000 } }">
-    <div class="max-w-screen-xl m-0 sm:m-10 bg-white lg:shadow  sm:rounded-lg flex justify-center flex-1">
+    <div class="max-w-screen-xl m-0 sm:m-10 bg-white lg:shadow dark:bg-background sm:rounded-lg flex justify-center flex-1">
         <!-- login form  -->
         <div class="lg:w-full xl:w-5/12 p-6 sm:p-12 flex-1 dark:bg-background" 
           v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transition: { duration: 2000 } }">
@@ -25,13 +25,13 @@ v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transit
                             type="password" placeholder="Password" />
                             <input
                             class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-1"
-                            type="password" placeholder="Password" />
+                            type="number" placeholder="Age" />
                             <input
                             class="w-full col-span-2 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-1"
-                            type="password" placeholder="Password" />
+                            type="text" placeholder="Address" />
                         <div class="col-span-2">
-                        <button
-                            class="mt-5 dark:bg-indigo-500 dark:text-black align-center tracking-wide font-semibold bg-black text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 dark:hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                        <Button
+                            class="mt-5 h-100 dark:bg-indigo-500 dark:text-white align-center tracking-wide font-semibold bg-black text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 dark:hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                             <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -41,7 +41,7 @@ v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transit
                             <span class="ml-3">
                                 Sign In
                             </span>
-                        </button>
+                        </Button>
                         <p class="mt-6 text-xs text-gray-600 text-center dark:text-white">
                             I agree to abide by templatana's
                             <a href="#" class="border-b border-gray-500 border-dotted">

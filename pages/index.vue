@@ -12,11 +12,11 @@
         latest trends and timeless collections curated to redefine your style.
         </p>
         </div>
-        <div class="overflow-hidden">
+        <div class="overflow-hidden flex justify-center">
         <img src="../assets/landing-img.jpg" v-motion 
         :initial="{ opacity: 0, x: 100 }"
         :visible="{ opacity: 1, x: 0, transition: { duration: 1000 } }"
-         class="w-[100%] md:w-full max-w-sm rounded-full drop-shadow-md" alt="model">
+         class="w-[75%] md:w-full max-w-sm rounded-full drop-shadow-md" alt="model">
        </div>   
     </div>
        <div class="custom-shape-divider-bottom-1738411565 dark:hidden">
@@ -28,7 +28,7 @@
 </div>
     </div>
     <!-- About section -->
-    <div class="p-10 md:pt-10 lg:pt-20 text-center lg:text-left container overflow-hidden">
+    <div class="p-10 container md:pt-10 lg:p-20 text-center lg:text-left container overflow-hidden">
             <h1 
              class="text-center text-4xl font-bold" v-motion
              :initial="{ opacity: 0, x: -100 }"
