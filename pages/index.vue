@@ -1,7 +1,7 @@
 <template>
-    <div class="h-[100vh] container p-20 relative">
-        <div class="h-[50vh] items-center justify-center gap-10 flex flex-wrap md:flex-nowrap">
-        <div class="max-w-lg">
+    <div class="h-[100vh] tablet:h-[50vh] lg:h-[100vh] pt-20 container relative">
+        <div class="h-auto w-auto xs:mt-0 lg:mt-0 items-center justify-center gap-10 flex flex-wrap md:flex-nowrap">
+        <div>
         <h1 class="text-4xl text-center md:text-center lg:text-left md:text-5xl font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-transparent bg-clip-text drop-shadow-lg animate-pulse"  v-motion 
         :initial="{ opacity: 0, x: -200 }"
         :enter="{ opacity: 1, x: 0, transition: { duration: 1000 } }">STYLEHAVEN</h1>
@@ -12,11 +12,11 @@
         latest trends and timeless collections curated to redefine your style.
         </p>
         </div>
-        <div>
+        <div class="overflow-hidden">
         <img src="../assets/landing-img.jpg" v-motion 
         :initial="{ opacity: 0, x: 100 }"
         :visible="{ opacity: 1, x: 0, transition: { duration: 1000 } }"
-         class="w-full max-w-sm rounded-full drop-shadow-md" alt="model">
+         class="w-[100%] md:w-full max-w-sm rounded-full drop-shadow-md" alt="model">
        </div>   
     </div>
        <div class="custom-shape-divider-bottom-1738411565 dark:hidden">
@@ -28,7 +28,7 @@
 </div>
     </div>
     <!-- About section -->
-    <div class="mt-10 p-6 md:p-20 lg:p-40 text-center lg:text-left container">
+    <div class="p-10 md:pt-10 lg:pt-20 text-center lg:text-left container overflow-hidden">
             <h1 
              class="text-center text-4xl font-bold" v-motion
              :initial="{ opacity: 0, x: -100 }"
@@ -77,6 +77,10 @@
 </script>
 
 <style scoped>
+*{
+    overflow-y: hidden;
+}
+
 .custom-shape-divider-bottom-1737879043 {
     width: 100%;
     position: absolute;

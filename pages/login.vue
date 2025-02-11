@@ -5,15 +5,18 @@ definePageMeta({
 </script>
 
 <template>
-<div class="text-gray-900 lg:drop-shadow-md lg:border-0 flex justify-center">
+<div class="text-gray-900 lg:drop-shadow-md lg:border-0 flex justify-center" 
+v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transition: { duration: 1000 } }">
     <div class="max-w-screen-xl m-0 sm:m-10 bg-white lg:shadow  sm:rounded-lg flex justify-center flex-1">
         <div class="flex-1 bg-indigo-100 text-center hidden md:flex">
             <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-                 style="background-image: url('/login-image.png');">
+                 style="background-image: url('/login-image.png');"
+                 v-motion :initial="{ opacity: 0, x: 100 }" :visible="{ opacity: 1, x: 0, transition: { duration: 2000 } }">
             </div>
         </div>
         <!-- login form  -->
-        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12"
+        v-motion :initial="{ opacity: 0, x:-100 }" :visible="{ opacity: 1, x: 0, transition: { duration: 2000 } }">
             <div class="mt-10 flex flex-col items-center">
                 <h1 class="text-2xl xl:text-3xl font-extrabold">
                     Sign In

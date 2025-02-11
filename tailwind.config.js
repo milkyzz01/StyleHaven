@@ -50,6 +50,11 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      screens: {
+         // Custom breakpoint for small phones
+        'tablet': '768px', // Custom breakpoint for iPads
+         // Custom large screen size
+      },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
@@ -76,7 +81,7 @@ module.exports = {
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "accordion-up": "accordion-up 1.2s ease-out",
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
