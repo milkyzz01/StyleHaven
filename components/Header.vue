@@ -4,10 +4,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Input } from './ui/input';
-import { useDark } from '~/composables/useDark'
-
-//use theme darkmode composable
-const { isDark, toggleDarkMode } = useDark();
 
 defineProps<{
     options: Array<{

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useThemeStore = defineStore('theme', {
   state: () => ({
-    isDark: process.client ? localStorage.getItem('theme') === 'dark' : false,
+    isDark:<boolean> process.client ? localStorage.getItem('theme') === 'dark' : false,
   }),
   actions: {
     toggleDarkMode() {
