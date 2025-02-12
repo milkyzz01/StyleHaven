@@ -1,4 +1,4 @@
-import { useThemeStore } from '~/store/theme'
+import { useThemeStore } from '~/stores/theme'
 
 export function useDark() {
   const themeStore = useThemeStore()
