@@ -17,13 +17,15 @@ export const useAuthStore = defineStore('auth', {
                 const auth = getAuth();
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 this.user = userCredential.user;
+                return true; // ✅ Success
             } catch (error: any) {
                 this.error = error.message;
+                return false; // ❌ Failure
             } finally {
                 this.loading = false;
             }
-        },
-
+        }, 
+        
         async login(email: string, password: string) {
             this.loading = true;
             this.error = null;
