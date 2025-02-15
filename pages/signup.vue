@@ -10,7 +10,7 @@ const address = ref("");
 const errorMessage = ref("");
 
 const handleSignup = async () => {
-  const success = await authStore.signUp(email.value, password.value);
+  const success = await authStore.signUp(email.value, password.value, age.value, address.value);
   if (!success) {
     errorMessage.value = authStore.error || "Signup failed. Please try again.";
   } else {

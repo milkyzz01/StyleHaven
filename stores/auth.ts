@@ -1,37 +1,50 @@
-import { defineStore } from 'pinia';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { defineStore } from "pinia";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import type { User } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
+import { useNuxtApp } from "#app";
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore("auth", {
     state: () => ({
         user: null as User | null,
-        loading: false,
+        loading: false as boolean,
         error: null as string | null,
     }),
 
     actions: {
-        async signUp(email: string, password: string) {
+        async signUp(email: string, password: string, age: number, address: string) {
             this.loading = true;
             this.error = null;
             try {
-                const auth = getAuth();
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const { $auth, $db } = useNuxtApp();
+
+                // Create user in Firebase Auth
+                const userCredential = await createUserWithEmailAndPassword($auth, email, password);
                 this.user = userCredential.user;
-                return true; // ✅ Success
+
+                // Store additional user info in Firestore
+                await setDoc(doc($db, "users", this.user.uid), {
+                    email,
+                    age,
+                    address,
+                    createdAt: new Date(),
+                });
+
+                return true;
             } catch (error: any) {
                 this.error = error.message;
-                return false; // ❌ Failure
+                return false;
             } finally {
                 this.loading = false;
             }
-        }, 
-        
+        },
+
         async login(email: string, password: string) {
             this.loading = true;
             this.error = null;
             try {
-                const auth = getAuth();
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const { $auth } = useNuxtApp();
+                const userCredential = await signInWithEmailAndPassword($auth, email, password);
                 this.user = userCredential.user;
             } catch (error: any) {
                 this.error = error.message;
@@ -43,8 +56,8 @@ export const useAuthStore = defineStore('auth', {
         async logout() {
             this.loading = true;
             try {
-                const auth = getAuth();
-                await signOut(auth);
+                const { $auth } = useNuxtApp();
+                await signOut($auth);
                 this.user = null;
             } catch (error: any) {
                 this.error = error.message;
@@ -54,8 +67,8 @@ export const useAuthStore = defineStore('auth', {
         },
 
         async initAuth() {
-            const auth = getAuth();
-            onAuthStateChanged(auth, (user) => {
+            const { $auth } = useNuxtApp();
+            onAuthStateChanged($auth, (user) => {
                 this.user = user;
             });
         }
