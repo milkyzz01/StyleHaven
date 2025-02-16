@@ -3,6 +3,7 @@ import { useAuthStore } from "@/stores/auth";
 import { useForm } from "~/composables/useForms";
 
 const loginAuth = useAuthStore();
+const router = useRouter();
 
 const initialFormState = {
     email: '',
@@ -18,7 +19,7 @@ const login = async () => {
         reset();
     } else {
         alert("Login Success");
-        reset();
+        router.push('/dashboard/');
     }
 }
 
