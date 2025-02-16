@@ -38,7 +38,7 @@ defineProps<{
       <SheetTrigger as-child>
         <Button variant="outline" size="icon" class="shrink-0 md:hidden">
           <Menu class="h-5 w-5  dark:bg-white-500" />
-          <span class="sr-only">Toggle navigation menu</span>
+          <span class="sr-only">Toggle nvigation menu</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
@@ -72,7 +72,7 @@ defineProps<{
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
             <!--trigger dropdown-->
-          <Button variant="secondary" size="icon" class="rounded-full" v-show="dropDownTrigger">
+          <Button variant="secondary" size="icon" class="rounded-full" v-if="dropDownTrigger">
             <CircleUser class="h-5 w-5" />
             <span class="sr-only">Toggle user menu</span>
           </Button>

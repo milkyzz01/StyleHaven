@@ -1,20 +1,28 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
+import { useForm } from "~/composables/useForms"
 
 const authStore = useAuthStore();
 
-const email = ref("");
-const password = ref("");
-const age = ref("");
-const address = ref("");
-const errorMessage = ref("");
+const signupInputState = {
+  email: '',
+  password: '',
+  age: null,
+  address: '',
+}
+const errorMessage = ref<string | null>(null);
+
+const { formState, reset } = useForm(signupInputState);
 
 const handleSignup = async () => {
-  const success = await authStore.signUp(email.value, password.value, age.value, address.value);
+  const success = await authStore.signUp(formState.value.email,
+   formState.value.password, formState.value.age, formState.value.address);
   if (!success) {
     errorMessage.value = authStore.error || "Signup failed. Please try again.";
+    reset();
   } else {
      alert('success signup');
+     reset();
   }
 };
 
@@ -37,19 +45,19 @@ definePageMeta({
   
             <div class="w-full flex-1 mt-8">
               <div class="mx-auto grid grid-cols-2 gap-5">
-                <input v-model="email"
+                <input v-model="formState.email"
                   class="w-full col-span-2 px-8 py-4 rounded-lg bg-gray-100 border border-gray-200 mt-1 placeholder-gray-500"
                   type="email" placeholder="Email" />
                 
-                <input v-model="password"
+                <input v-model="formState.password"
                   class="w-full px-8 py-4 rounded-lg bg-gray-100 border border-gray-200 placeholder-gray-500 mt-1"
                   type="password" placeholder="Password" />
                 
-                <input v-model="age"
+                <input v-model="formState.age"
                   class="w-full px-8 py-4 rounded-lg bg-gray-100 border border-gray-200 placeholder-gray-500 mt-1"
                   type="number" placeholder="Age" />
                 
-                <input v-model="address"
+                <input v-model="formState.address"
                   class="w-full col-span-2 px-8 py-4 rounded-lg bg-gray-100 border border-gray-200 placeholder-gray-500 mt-1"
                   type="text" placeholder="Address" />
                 

@@ -1,18 +1,24 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
+import { useForm } from "~/composables/useForms";
 
 const loginAuth = useAuthStore();
 
-// input models
-const email = ref("");
-const password =  ref("");
+const initialFormState = {
+    email: '',
+    password: ''
+}
+// destructure use form composable
+const { formState, reset } = useForm(initialFormState);
 
 const login = async () => {
-    const success = await loginAuth.login(email.value, password.value);
+    const success = await loginAuth.login(formState.value.email, formState.value.password);
     if(!success) {
-        alert(`Login Failed: ${loginAuth.error}`)
+        alert(`Login Failed: ${loginAuth.error}`);
+        reset();
     } else {
         alert("Login Success");
+        reset();
     }
 }
 
@@ -42,10 +48,10 @@ v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transit
                     <div class="mx-auto max-w-xs">
                         <input
                             class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="email" v-model="email" placeholder="Email" />
+                            type="email" v-model="formState.email" placeholder="Email" />
                         <input
                             class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                            type="password" v-model="password" placeholder="Password" />
+                            type="password" v-model="formState.password" placeholder="Password" />
                         <Button @click="login"
                             class="mt-5 tracking-wide h-100 dark:text-white dark:bg-indigo-700 dark:hover:bg-green-500 font-semibold bg-black text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                             <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
