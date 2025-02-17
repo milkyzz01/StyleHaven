@@ -18,5 +18,6 @@ export default defineNuxtConfig({
     autoImport: true
   },
 
+
   compatibilityDate: '2025-01-04'
 })

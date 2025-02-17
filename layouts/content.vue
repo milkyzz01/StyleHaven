@@ -1,5 +1,14 @@
 <script lang="ts" setup>
-
+const option = [
+    {
+        name: 'Dashboard',
+        link: 'dashboard/'
+    },
+    {
+        name: 'Products',
+        link: '/'
+    },
+]
 </script>
 <template>
 <div>
