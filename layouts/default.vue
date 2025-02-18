@@ -14,7 +14,7 @@ const { isDark } = useDark()
   <div>
     <Header :options="option" :dropDownTrigger="false" />
     <main>
-      <Loader v-if="isDark" />
+      <Loader />
       <slot />
     </main>
   </div>

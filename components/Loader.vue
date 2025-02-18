@@ -1,5 +1,5 @@
 <template>
-    <div class="loader-overlay">
+<div class="loader-overlay" v-if="loading">
 <div class="loader">
 <div class="loader-square"></div>
 <div class="loader-square"></div>
@@ -11,6 +11,13 @@
 </div>
 </div>
 </template>
+
+<script lang="ts" setup>
+import { useLoader } from "~/composables/useLoader";
+
+const { loading, toggleLoader } = useLoader();
+
+</script>
 
 <style scoped>
 /* From Uiverse.io by ZacharyCrespin */ 

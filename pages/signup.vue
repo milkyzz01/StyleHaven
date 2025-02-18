@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { useAuthStore } from "@/stores/auth";
-import { useForm } from "~/composables/useForms"
+import { useForm } from "~/composables/useForms";
+import { useLoader } from "~/composables/useLoader";
+import { computed } from "vue";
 
 const authStore = useAuthStore();
+const { toggleLoader } = useLoader();
 
 const signupInputState = {
   email: '',
@@ -14,24 +17,35 @@ const errorMessage = ref<string | null>(null);
 
 const { formState, reset } = useForm(signupInputState);
 
+
 const handleSignup = async () => {
-  const success = await authStore.signUp(formState.value.email,
-   formState.value.password, formState.value.age, formState.value.address);
+  toggleLoader(); // Start loader
+  const success = await authStore.signUp(
+    formState.value.email,
+    formState.value.password,
+    formState.value.age,
+    formState.value.address
+  );
+
   if (!success) {
+    toggleLoader(); // Stop loader
     errorMessage.value = authStore.error || "Signup failed. Please try again.";
-    reset();
   } else {
-     alert('success signup');
-     reset();
+    toggleLoader(); // Stop loader
+    alert('Signup successful');
   }
+  
+  reset();
+  
 };
 
 definePageMeta({
     layout: 'default'
-})
+});
 </script>
 
 <template>
+   
     <div class="text-gray-900 lg:drop-shadow-md lg:border-0 flex justify-center dark:bg-background" 
       v-motion :initial="{ opacity: 0, y: 100 }" :visible="{ opacity: 1, y: 0, transition: { duration: 1000 } }">
       <div class="max-w-screen-xl m-0 sm:m-10 bg-white lg:shadow dark:bg-background sm:rounded-lg flex justify-center flex-1">
