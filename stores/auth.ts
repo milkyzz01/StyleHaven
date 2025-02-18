@@ -46,8 +46,10 @@ export const useAuthStore = defineStore("auth", {
                 const { $auth } = useNuxtApp();
                 const userCredential = await signInWithEmailAndPassword($auth, email, password);
                 this.user = userCredential.user;
+                return true;
             } catch (error: any) {
                 this.error = error.message;
+                return false;
             } finally {
                 this.loading = false;
             }
